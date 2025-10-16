@@ -81,3 +81,4 @@ locale/translations_pot_files=PackedStringArray("res://Dialogos/text/Dialogo_mag
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.0627451, 0.047058824, 0.050980393, 1)

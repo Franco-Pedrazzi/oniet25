@@ -39,7 +39,7 @@ func jump(delta):
 		
 	if sicking and Input.is_action_just_pressed("jump"):
 		velocity.y=move_toward(velocity.y,-jump_speed*2,jump_speed/3)
-		velocity.x=move_toward(velocity.y,-jump_speed/3,jump_speed/3)
+		velocity.x=move_toward(velocity.x,-jump_speed/3*direction,jump_speed/3)
 		sickjump=true
 
 func move():
@@ -61,9 +61,11 @@ func dash():
 		velocity.x=move_toward(velocity.x,speed*6*direction,speed)
 		
 func sick():
-	if is_on_wall_only() and not sickjump:
+	var get_axis=Input.get_axis("left","right")
+	if is_on_wall_only() and not sickjump and get_axis:
 		velocity.y=GlobalValues.gravity/40
 		sicking=true
+		direction=get_axis
 	else:
 		sicking=false
 		sickjump=false
@@ -94,8 +96,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		var time=death_timer.time_left
 		death_timer.stop()
 		if time-10<=0:
-			get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
-		death_timer.start(time-10)
+			death_timer.start(1)
+		else:
+			death_timer.start(time-10)
 		
 		var enemy=area.get_parent()
 
