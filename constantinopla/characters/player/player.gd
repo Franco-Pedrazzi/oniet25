@@ -14,7 +14,7 @@ var coyote_time=true
 
 
 func _physics_process(delta: float) -> void:
-	if GameManager.is_dialogue_active:
+	if GlobalValues.is_dialogue_active:
 		return
 	jump(delta)
 	move()
@@ -38,7 +38,7 @@ func jump(delta):
 		coyote_time=true
 		
 	if sicking and Input.is_action_just_pressed("jump"):
-		velocity.y=move_toward(velocity.y,-jump_speed,jump_speed/3)
+		velocity.y=move_toward(velocity.y,-jump_speed*2,jump_speed/3)
 		velocity.x=move_toward(velocity.y,-jump_speed/2,jump_speed/3)
 		sickjump=true
 
@@ -85,7 +85,8 @@ func timer():
 	if death_timer.time_left==0:
 		get_tree().reload_current_scene()
 	
-
+func inmunity():
+	pass
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.get_collision_layer_value(3):
@@ -96,8 +97,8 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		death_timer.start(time-10)
 		
 		var enemy=area.get_parent()
-		velocity.x=sign(enemy.position.x-position.x)*speed/2
-		velocity.y=sign(enemy.position.y-position.y)*speed/2
+		velocity.x=sign(enemy.position.x-position.x)*-jump_speed/2
+		velocity.y=sign(enemy.position.y-position.y)*jump_speed/4
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
