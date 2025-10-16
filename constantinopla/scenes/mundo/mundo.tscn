@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=14 format=4 uid="uid://dxue8xmconedu"]
+=======
+[gd_scene load_steps=9 format=4 uid="uid://dxue8xmconedu"]
+>>>>>>> 94ca8771bc4cc2ec3fe4303d8408a26f41c3f0f9
 
 [ext_resource type="PackedScene" uid="uid://dbahbix74qof1" path="res://characters/player/player.tscn" id="1_6kkx2"]
 [ext_resource type="PackedScene" uid="uid://cn1gykrd1riwo" path="res://characters/NPC/mago_comienzo.tscn" id="3_efvep"]
@@ -6,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cr6jsm4tnov2m" path="res://objets/chenge_node_to/chaenge_node.tscn" id="5_0r531"]
 [ext_resource type="PackedScene" uid="uid://f8u74yligeut" path="res://objets/key/key.tscn" id="5_wajt0"]
 [ext_resource type="PackedScene" uid="uid://c3086cgc4hb6k" path="res://objets/door/door.tscn" id="6_wajt0"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cv3qus2nwhj86" path="res://assets/tuto/wall.png" id="7_7n5et"]
 [ext_resource type="Texture2D" uid="uid://b0c3aatb7q26l" path="res://assets/tuto/move_inputs.png" id="8_s4i25"]
 [ext_resource type="Texture2D" uid="uid://deipwvidodyso" path="res://assets/tuto/move_draw.png" id="9_t6nhy"]
@@ -13,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://bmwut6k5n7soe" path="res://assets/tuto/jump_draw.png" id="11_ja1hb"]
 [ext_resource type="Texture2D" uid="uid://de5ypijfgg6dp" path="res://assets/tuto/dash_input.png" id="12_1883n"]
 [ext_resource type="Texture2D" uid="uid://dpcy8ldhqkkwr" path="res://assets/tuto/dash_draw.png" id="13_wigjj"]
+=======
+[ext_resource type="PackedScene" uid="uid://bhqrajh4ryanm" path="res://interface/pausa.tscn" id="7_kdk4d"]
+[ext_resource type="AudioStream" uid="uid://c11kkcdkyxl5w" path="res://assets/sonidos/lv_0_20251016162238.mp3" id="8_giaku"]
+>>>>>>> 94ca8771bc4cc2ec3fe4303d8408a26f41c3f0f9
 
 [node name="Node2D" type="Node2D"]
 
@@ -73,3 +82,10 @@ texture = ExtResource("13_wigjj")
 
 [node name="player" parent="." instance=ExtResource("1_6kkx2")]
 position = Vector2(-134, 88)
+
+[node name="Pausa" parent="." instance=ExtResource("7_kdk4d")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_giaku")
+volume_db = -14.135
+autoplay = true
