@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbahbix74qof1"]
+[gd_scene load_steps=8 format=3 uid="uid://dbahbix74qof1"]
 
 [ext_resource type="Script" uid="uid://ew5pgpf8744m" path="res://characters/player/player.gd" id="1_xxgcw"]
 [ext_resource type="Texture2D" uid="uid://bxx5oq8ktgfxs" path="res://assets/icon.svg" id="2_exd8k"]
 [ext_resource type="Texture2D" uid="uid://cmajrlck45mam" path="res://assets/hourglass-clipart-1672829725Y8J.png" id="3_exd8k"]
+[ext_resource type="Texture2D" uid="uid://bfy6urbuikfn5" path="res://assets/exclamation.png" id="4_5dc8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exd8k"]
 size = Vector2(31, 24)
@@ -67,5 +68,12 @@ collision_mask = 12
 position = Vector2(-1, -2)
 shape = SubResource("CircleShape2D_exd8k")
 
+[node name="Exclamation" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -17)
+texture = ExtResource("4_5dc8e")
+
+[connection signal="area_entered" from="interactive" to="." method="_on_interactive_area_entered"]
+[connection signal="area_exited" from="interactive" to="." method="_on_interactive_area_exited"]
 [connection signal="area_entered" from="hit_box" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
