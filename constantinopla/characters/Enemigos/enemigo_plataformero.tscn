@@ -23,7 +23,7 @@ collision_layer = 4
 script = ExtResource("1_3cvo5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(88, 7.0000005)
+position = Vector2(7.6293945e-06, 0.8800006)
 scale = Vector2(0.2, 0.17)
 sprite_frames = SubResource("SpriteFrames_3cvo5")
 
@@ -33,18 +33,19 @@ scale = Vector2(4.9999995, 5.8823524)
 target_position = Vector2(0, 20.000004)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(88, 7)
+position = Vector2(0, 0.87999916)
 shape = SubResource("RectangleShape2D_vxx27")
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-position = Vector2(88, 7)
+position = Vector2(0, 0.87999916)
 target_position = Vector2(-20, 0)
 
 [node name="RightRay" type="RayCast2D" parent="."]
-position = Vector2(88, 7)
+position = Vector2(0, 0.87999916)
 target_position = Vector2(20, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-88, -6.120001)
 collision_layer = 4
 collision_mask = 0
 

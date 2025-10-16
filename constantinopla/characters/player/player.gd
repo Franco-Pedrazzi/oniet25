@@ -10,7 +10,7 @@ var dashing=false
 var sicking=false
 var sickjump=false
 var coyote_time=true
-
+var is_inmunity=false
 
 
 func _physics_process(delta: float) -> void:
@@ -39,7 +39,7 @@ func jump(delta):
 		
 	if sicking and Input.is_action_just_pressed("jump"):
 		velocity.y=move_toward(velocity.y,-jump_speed*2,jump_speed/3)
-		velocity.x=move_toward(velocity.y,-jump_speed/2,jump_speed/3)
+		velocity.x=move_toward(velocity.y,-jump_speed/3,jump_speed/3)
 		sickjump=true
 
 func move():
@@ -83,24 +83,27 @@ func coyote_timer():
 func timer():
 	time_bar.scale.x=(death_timer.time_left)/45
 	if death_timer.time_left==0:
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
 	
 func inmunity():
-	pass
+	await get_tree().create_timer(1).timeout
+	is_inmunity=false
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.get_collision_layer_value(3):
+	if area.get_collision_layer_value(3) and not is_inmunity:
 		var time=death_timer.time_left
 		death_timer.stop()
 		if time-10<=0:
-			get_tree().reload_current_scene()
+			get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
 		death_timer.start(time-10)
 		
 		var enemy=area.get_parent()
+
 		velocity.x=sign(enemy.position.x-position.x)*-jump_speed/2
 		velocity.y=sign(enemy.position.y-position.y)*jump_speed/4
-
+		is_inmunity=true
+		inmunity()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer_value(4):
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
