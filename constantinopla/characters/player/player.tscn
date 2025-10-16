@@ -37,19 +37,25 @@ shape = SubResource("CircleShape2D_xxgcw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -20)
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="timer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -145.0
+offset_top = 67.0
+offset_right = -105.0
+offset_bottom = 107.0
 
-[node name="Icon" type="Sprite2D" parent="timer"]
-position = Vector2(-91, 47)
+[node name="Icon" type="ColorRect" parent="timer"]
+custom_minimum_size = Vector2(20, 80)
+layout_mode = 0
+offset_left = -90.0
+offset_top = 42.0
+offset_right = -70.0
+offset_bottom = 122.0
 scale = Vector2(1, 0.1)
-texture = ExtResource("2_exd8k")
-offset = Vector2(64, -10)
+color = Color(0, 1, 0, 1)
 
 [node name="HourglassClipart1672829725y8j" type="Sprite2D" parent="timer"]
 position = Vector2(-91.00001, 46)

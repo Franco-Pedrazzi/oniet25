@@ -36,8 +36,10 @@ func jump(delta):
 		velocity.y+=GlobalValues.gravity*delta
 		coyote_timer()
 	else:
-		can_dash=true
+		
 		coyote_time=true
+	if is_on_floor() or is_on_wall():
+		can_dash=true
 		
 	if sicking and Input.is_action_just_pressed("jump"):
 		velocity.y=move_toward(velocity.y,-jump_speed*2,jump_speed/3)
@@ -58,7 +60,7 @@ func dash():
 		dash_timer()
 		if sicking:
 			direction*=-1
-	
+		can_dash=false
 	if dashing:
 		velocity.x=move_toward(velocity.x,speed*6*direction,speed)
 		
@@ -85,7 +87,7 @@ func coyote_timer():
 	coyote_time=false
 
 func timer():
-	time_bar.scale.x=(death_timer.time_left)/45
+	time_bar.size.x=death_timer.time_left
 	GlobalValues.time=death_timer.time_left
 	if death_timer.time_left==0:
 		GlobalValues.time=60
