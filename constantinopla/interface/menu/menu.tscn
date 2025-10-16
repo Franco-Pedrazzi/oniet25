@@ -28,10 +28,16 @@ grow_vertical = 2
 
 [node name="iniciar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "play"
+text = "Iniciar"
 
 [node name="opciones" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Opciones"
 
 [node name="salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://knghladjl61s"]
+
+[ext_resource type="Script" path="res://interface/menu/opciones.gd" id="1_62ub8"]
+
+[node name="Opciones" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_62ub8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -38.5
+offset_right = 139.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="controles" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Controles
+"
+
+[node name="atras" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Atras
+"
+
+[connection signal="pressed" from="VBoxContainer/controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="VBoxContainer/atras" to="." method="_on_atras_pressed"]
