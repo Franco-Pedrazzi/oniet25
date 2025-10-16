@@ -9,10 +9,8 @@ size = Vector2(20, 18.492098)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_6kkx2")]
-position = Vector2(81, 20)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visibility_layer = 2
 position = Vector2(142, 147)
 scale = Vector2(31.486973, 4.710262)
 
@@ -27,6 +25,7 @@ scale = Vector2(0.1328125, 0.1328125)
 texture = ExtResource("2_efvep")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visibility_layer = 2
 position = Vector2(561, 57.000023)
 scale = Vector2(31.486973, 4.710262)
 
@@ -42,3 +41,6 @@ texture = ExtResource("2_efvep")
 
 [node name="Mago_comienzo" parent="." instance=ExtResource("3_efvep")]
 position = Vector2(-68, 95)
+
+[node name="player" parent="." instance=ExtResource("1_6kkx2")]
+position = Vector2(81, 20)

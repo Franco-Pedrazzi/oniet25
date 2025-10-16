@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var time_bar=$timer/Icon
-@onready var time_value=$timer/Timer
+@onready var death_timer=$timer/Timer
 
 var jump_speed=1000
 var speed=200
@@ -10,6 +10,8 @@ var dashing=false
 var sicking=false
 var sickjump=false
 var coyote_time=true
+
+
 
 func _physics_process(delta: float) -> void:
 	if GameManager.is_dialogue_active:
@@ -79,5 +81,25 @@ func coyote_timer():
 	coyote_time=false
 
 func timer():
-	pass
+	time_bar.scale.x=(death_timer.time_left)/45
+	if death_timer.time_left==0:
+		get_tree().reload_current_scene()
 	
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.get_collision_layer_value(3):
+		var time=death_timer.time_left
+		death_timer.stop()
+		if time-10<=0:
+			get_tree().reload_current_scene()
+		death_timer.start(time-10)
+		
+		var enemy=area.get_parent()
+		velocity.x=sign(enemy.position.x-position.x)*speed/2
+		velocity.y=sign(enemy.position.y-position.y)*speed/2
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.get_collision_layer_value(4):
+		get_tree().reload_current_scene()
