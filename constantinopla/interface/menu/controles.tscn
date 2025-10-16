@@ -1,0 +1,8 @@
+[gd_scene load_steps=0 format=3 uid="uid://cjx0kerkh5h58"]
+
+[node name="Controles" type="CanvasLayer"]
+process_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
