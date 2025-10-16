@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://knghladjl61s"]
+[gd_scene load_steps=3 format=3 uid="uid://knghladjl61s"]
 
 [ext_resource type="Script" path="res://interface/menu/opciones.gd" id="1_62ub8"]
+[ext_resource type="FontFile" uid="uid://c163ga11tqgnt" path="res://assets/fuentes/Alkhemikal.ttf" id="2_hcmok"]
 
 [node name="Opciones" type="CanvasLayer"]
 process_mode = 3
@@ -30,12 +31,16 @@ theme_override_constants/separation = 15
 
 [node name="controles" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hcmok")
+theme_override_font_sizes/font_size = 40
 text = "Controles
 "
 
 [node name="atras" type="Button" parent="VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hcmok")
+theme_override_font_sizes/font_size = 40
 text = "Atras
 "
 
