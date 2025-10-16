@@ -12,6 +12,8 @@ var sickjump=false
 var coyote_time=true
 
 func _physics_process(delta: float) -> void:
+	if GameManager.is_dialogue_active:
+		return
 	jump(delta)
 	move()
 	dash()
@@ -77,5 +79,5 @@ func coyote_timer():
 	coyote_time=false
 
 func timer():
-	time_bar.scale.x=time_value.get_ticks_msec()
+	pass
 	
