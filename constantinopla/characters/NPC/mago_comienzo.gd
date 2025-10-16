@@ -1,5 +1,5 @@
 extends Area2D
-
+@onready var exclamation=$Exclamation
 const DIALOGO_MAGO = preload("uid://cuuq13xsgnss")
 
 var si_esta_cerca = false
@@ -21,6 +21,8 @@ func _on_dialogue_ended(dialogue):
 	
 func _on_area_entered(area):
 	si_esta_cerca = true
+	exclamation.visible=true
 	
 func _on_area_exited(area):
 	si_esta_cerca = false
+	exclamation.visible=false
