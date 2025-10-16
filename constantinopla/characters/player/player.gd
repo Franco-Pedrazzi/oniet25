@@ -1,6 +1,8 @@
 extends CharacterBody2D
 @onready var time_bar=$timer/Icon
 @onready var death_timer=$timer/Timer
+@onready var tiempo: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var pasos: AudioStreamPlayer2D = $pasos
 
 var jump_speed=1000
 var speed=200
@@ -49,9 +51,12 @@ func jump(delta):
 func move():
 	var get_axis= Input.get_axis("left","right")
 	if get_axis:
+		if is_on_floor():
+			pasos.stream_paused = false
 		velocity.x=move_toward(velocity.x,speed*get_axis,speed/5)
 		direction=get_axis
 	elif not dashing:
+		pasos.stream_paused = true
 		velocity.x=move_toward(velocity.x,0,speed/5)
 
 func dash():
@@ -117,3 +122,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer_value(4):
 		GlobalValues.time=60
 		get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
+
+func sonido():
+	if death_timer.time_left == 8:
+		tiempo.play()
