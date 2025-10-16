@@ -20,6 +20,4 @@ tile_map_data = PackedByteArray("AAABAAAAAQACAAAAAAACAAAAAQADAAAAAAADAAAAAQADAAA
 [node name="change_node_to" parent="." instance=ExtResource("5_0r531")]
 position = Vector2(600, -116)
 scale = Vector2(1, 5)
-collision_layer = 0
-collision_mask = 2
 nodeName = "bosque"

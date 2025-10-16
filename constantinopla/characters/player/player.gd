@@ -12,6 +12,8 @@ var sickjump=false
 var coyote_time=true
 var is_inmunity=false
 
+func _ready() -> void:
+	death_timer.start(GlobalValues.time)
 
 func _physics_process(delta: float) -> void:
 	if GlobalValues.is_dialogue_active:
@@ -84,7 +86,9 @@ func coyote_timer():
 
 func timer():
 	time_bar.scale.x=(death_timer.time_left)/45
+	GlobalValues.time=death_timer.time_left
 	if death_timer.time_left==0:
+		GlobalValues.time=60
 		get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
 	
 func inmunity():
@@ -109,4 +113,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer_value(4):
+		GlobalValues.time=60
 		get_tree().change_scene_to_file("res://scenes/mundo/mundo.tscn")
