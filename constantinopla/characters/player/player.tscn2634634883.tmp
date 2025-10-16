@@ -1,26 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbahbix74qof1"]
+[gd_scene load_steps=5 format=3 uid="uid://dbahbix74qof1"]
 
 [ext_resource type="Script" uid="uid://ew5pgpf8744m" path="res://characters/player/player.gd" id="1_xxgcw"]
 [ext_resource type="Texture2D" uid="uid://bxx5oq8ktgfxs" path="res://assets/icon.svg" id="2_exd8k"]
 [ext_resource type="Texture2D" uid="uid://cmajrlck45mam" path="res://assets/hourglass-clipart-1672829725Y8J.png" id="3_exd8k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_exd8k"]
-size = Vector2(31, 24)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxgcw"]
 radius = 12.0415945
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 2
 script = ExtResource("1_xxgcw")
-
-[node name="interactive" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interactive"]
-position = Vector2(-1.5, -2)
-shape = SubResource("RectangleShape2D_exd8k")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)

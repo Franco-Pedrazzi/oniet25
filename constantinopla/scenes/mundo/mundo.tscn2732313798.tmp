@@ -41,4 +41,4 @@ scale = Vector2(0.1328125, 0.1328125)
 texture = ExtResource("2_efvep")
 
 [node name="Mago_comienzo" parent="." instance=ExtResource("3_efvep")]
-position = Vector2(-68, 95)
+position = Vector2(-69, 77)
